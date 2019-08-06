@@ -1,18 +1,27 @@
 package main
 
-import ("fmt")
+import (
+	"fmt"
+	
+	)
 func main() {
-    
 	userInterfaceScreen1()
 
 	}
 
 func userInterfaceScreen1() {
-	fmt.Println("New User press 7 to register:")
-	fmt.Println("Enter Username:")
-	fmt.Println("Enter password:")
-	
-	
+	var username,password string
+	fmt.Println("New User Registration, press 1:")
+	fmt.Println("Enter your username:")
+	fmt.Scanln(&username)
+	if username != "1" {
+		fmt.Println("Enter your password")
+		fmt.Scanln(&password)
+		fmt.Printf("username %s", username)
+		fmt.Printf("password %s", password)
+		return
+	}
+	new_user_reg()
 }
 
 func usernamePasswordProcess() {
@@ -21,7 +30,12 @@ func usernamePasswordProcess() {
 }
 
 func new_user_reg() {
-
+   var username,password string	
+   fmt.Println("Came to new user reg screen")
+   fmt.Println("Enter your username:")
+   fmt.Scanln(&username)
+   fmt.Println("Enter your password")
+   fmt.Scanln(&password)
 
 }
 
