@@ -1,41 +1,51 @@
 package main
-
 import (
 	"fmt"
-	
+	"os"
+	"os/exec"
 	)
+
 func main() {
-	userInterfaceScreen1()
+	//username,password := userInterfaceScreen1()
+	var username = "test"
+	var password = "test"
+	usernamePasswordProcess(username,password)
+	//fmt.Printf("username %s", username)
+	//fmt.Printf("password %s", password)
+}
+func clrScr() {
+	cmd := exec.Command("clear")
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+}
 
-	}
-
-func userInterfaceScreen1() {
-	var username,password string
-	fmt.Println("New User Registration, press 1:")
+func userInterfaceScreen1() (username,password string){
+	clrScr()
+	fmt.Println("For new User registration, Press key 1:")
 	fmt.Println("Enter your username:")
 	fmt.Scanln(&username)
 	if username != "1" {
 		fmt.Println("Enter your password")
 		fmt.Scanln(&password)
-		fmt.Printf("username %s", username)
-		fmt.Printf("password %s", password)
 		return
 	}
-	new_user_reg()
+	username,password = new_user_reg()
+	return
 }
 
-func usernamePasswordProcess() {
-
-
+func usernamePasswordProcess(uname,pword string) {
+    fmt.Printf("username %s", uname)
+	fmt.Printf("password %s", pword)
 }
 
-func new_user_reg() {
-   var username,password string	
+func new_user_reg() (username,password string){
+   clrScr()
    fmt.Println("Came to new user reg screen")
    fmt.Println("Enter your username:")
    fmt.Scanln(&username)
    fmt.Println("Enter your password")
    fmt.Scanln(&password)
+   return 
 
 }
 
